@@ -4,17 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mock Test - Rojgar Times India</title>
-
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
 <style>
 
 .page-banner{
-background:#002a72;
+background:linear-gradient(135deg,#002a72 0%,#0056d6 100%);
 color:#fff;
 text-align:center;
 padding:50px 20px;
+}
+
+.page-banner h1{
+font-size:38px;
+margin-bottom:8px;
 }
 
 .test-grid{
@@ -22,20 +25,32 @@ max-width:1400px;
 margin:30px auto;
 padding:20px;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:20px;
 }
 
 .test-card{
 background:#fff;
 padding:25px;
-border-radius:12px;
-box-shadow:0 2px 10px rgba(0,0,0,.08);
+border-radius:14px;
+box-shadow:0 6px 18px rgba(0,0,0,.08);
 text-align:center;
+transition:.3s;
+}
+
+.test-card:hover{
+transform:translateY(-5px);
+box-shadow:0 12px 26px rgba(0,0,0,.14);
 }
 
 .test-card h2{
 color:#002a72;
+margin-bottom:10px;
+font-size:22px;
+}
+
+.test-card p{
+color:#666;
 margin-bottom:15px;
 }
 
@@ -43,20 +58,279 @@ margin-bottom:15px;
 display:inline-block;
 background:#e31e24;
 color:#fff;
-padding:12px 20px;
+padding:12px 26px;
 text-decoration:none;
-border-radius:5px;
+border:none;
+border-radius:30px;
 font-weight:bold;
-margin-top:15px;
+font-size:15px;
+cursor:pointer;
+transition:.3s;
 }
 
 .start-btn:hover{
 background:#c4171d;
+transform:translateY(-2px);
+}
+
+/* QUIZ OVERLAY */
+
+.quiz-overlay{
+position:fixed;
+inset:0;
+background:rgba(15,23,42,.6);
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+z-index:9999;
+}
+
+.quiz-overlay.show{
+display:flex;
+}
+
+.quiz-box{
+background:#fff;
+width:min(650px,100%);
+max-height:90vh;
+overflow-y:auto;
+border-radius:16px;
+padding:25px;
+}
+
+.quiz-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+padding-bottom:15px;
+border-bottom:2px solid #f0f0f0;
+}
+
+.quiz-header h3{
+color:#002a72;
+font-size:20px;
+}
+
+.quiz-timer{
+background:#fef3c7;
+color:#92400e;
+padding:8px 16px;
+border-radius:20px;
+font-weight:700;
+font-size:14px;
+}
+
+.quiz-timer.low-time{
+background:#fee2e2;
+color:#b91c1c;
+}
+
+.quiz-progress{
+color:#666;
+font-size:13px;
+margin-bottom:15px;
+font-weight:600;
+}
+
+.quiz-question{
+font-size:18px;
+font-weight:600;
+color:#111;
+margin-bottom:20px;
+line-height:1.5;
+}
+
+.quiz-options{
+display:flex;
+flex-direction:column;
+gap:12px;
+margin-bottom:25px;
+}
+
+.quiz-option{
+display:flex;
+align-items:center;
+gap:12px;
+padding:14px 16px;
+border:2px solid #e5e7eb;
+border-radius:10px;
+cursor:pointer;
+transition:.2s;
+font-size:15px;
+}
+
+.quiz-option:hover{
+border-color:#0056d6;
+background:#f8faff;
+}
+
+.quiz-option.selected{
+border-color:#0056d6;
+background:#eaf1ff;
+font-weight:600;
+}
+
+.quiz-option input{
+width:18px;
+height:18px;
+accent-color:#0056d6;
+}
+
+.quiz-nav{
+display:flex;
+justify-content:space-between;
+gap:10px;
+}
+
+.quiz-btn{
+padding:12px 24px;
+border:none;
+border-radius:30px;
+font-weight:700;
+cursor:pointer;
+font-size:14px;
+transition:.3s;
+}
+
+.quiz-btn.prev{
+background:#f3f4f6;
+color:#374151;
+}
+
+.quiz-btn.prev:hover{
+background:#e5e7eb;
+}
+
+.quiz-btn.next{
+background:#0056d6;
+color:#fff;
+margin-left:auto;
+}
+
+.quiz-btn.next:hover{
+background:#0041a3;
+}
+
+.quiz-btn.submit{
+background:#16a34a;
+color:#fff;
+margin-left:auto;
+}
+
+.quiz-btn.submit:hover{
+background:#128a3e;
+}
+
+.quiz-btn:disabled{
+opacity:.4;
+cursor:not-allowed;
+}
+
+.quiz-close{
+background:none;
+border:none;
+font-size:24px;
+cursor:pointer;
+color:#666;
+line-height:1;
+}
+
+/* RESULT SCREEN */
+
+.result-screen{
+text-align:center;
+padding:10px;
+}
+
+.result-screen h2{
+color:#002a72;
+font-size:26px;
+margin-bottom:10px;
+}
+
+.score-circle{
+width:140px;
+height:140px;
+border-radius:50%;
+background:linear-gradient(135deg,#0056d6,#002a72);
+color:#fff;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+margin:20px auto;
+}
+
+.score-circle .score-num{
+font-size:34px;
+font-weight:800;
+}
+
+.score-circle .score-total{
+font-size:13px;
+opacity:.85;
+}
+
+.result-stats{
+display:flex;
+justify-content:center;
+gap:25px;
+margin:20px 0;
+flex-wrap:wrap;
+}
+
+.result-stat{
+text-align:center;
+}
+
+.result-stat .num{
+font-size:24px;
+font-weight:800;
+}
+
+.result-stat.correct .num{ color:#16a34a; }
+.result-stat.wrong .num{ color:#e31e24; }
+.result-stat.skipped .num{ color:#92400e; }
+
+.result-stat .label{
+font-size:12px;
+color:#666;
+text-transform:uppercase;
+letter-spacing:.5px;
+}
+
+.result-actions{
+display:flex;
+justify-content:center;
+gap:12px;
+margin-top:20px;
+flex-wrap:wrap;
+}
+
+@media(max-width:600px){
+
+.page-banner h1{
+font-size:26px;
+}
+
+.quiz-box{
+padding:18px;
+}
+
+.quiz-question{
+font-size:16px;
+}
+
+.quiz-header h3{
+font-size:16px;
+}
+
 }
 
 </style>
 </head>
-
 <body>
 
 <section class="page-banner">
@@ -68,38 +342,38 @@ background:#c4171d;
 
 <div class="test-card">
 <h2>SSC Mock Test</h2>
-<p>50 Questions | 60 Minutes</p>
-<a href="#" class="start-btn">Start Test</a>
+<p>5 Questions | 3 Minutes</p>
+<button class="start-btn" onclick="startTest('ssc')">Start Test</button>
 </div>
 
 <div class="test-card">
 <h2>Railway Mock Test</h2>
-<p>50 Questions | 60 Minutes</p>
-<a href="#" class="start-btn">Start Test</a>
+<p>5 Questions | 3 Minutes</p>
+<button class="start-btn" onclick="startTest('railway')">Start Test</button>
 </div>
 
 <div class="test-card">
 <h2>Banking Mock Test</h2>
-<p>50 Questions | 60 Minutes</p>
-<a href="#" class="start-btn">Start Test</a>
+<p>5 Questions | 3 Minutes</p>
+<button class="start-btn" onclick="startTest('banking')">Start Test</button>
 </div>
 
 <div class="test-card">
 <h2>Bihar Exam Mock Test</h2>
-<p>50 Questions | 60 Minutes</p>
-<a href="#" class="start-btn">Start Test</a>
+<p>5 Questions | 3 Minutes</p>
+<button class="start-btn" onclick="startTest('bihar')">Start Test</button>
 </div>
 
 <div class="test-card">
 <h2>General Knowledge Test</h2>
-<p>100 Questions | 90 Minutes</p>
-<a href="#" class="start-btn">Start Test</a>
+<p>5 Questions | 3 Minutes</p>
+<button class="start-btn" onclick="startTest('gk')">Start Test</button>
 </div>
 
 <div class="test-card">
 <h2>Current Affairs Test</h2>
-<p>50 Questions | 45 Minutes</p>
-<a href="#" class="start-btn">Start Test</a>
+<p>5 Questions | 3 Minutes</p>
+<button class="start-btn" onclick="startTest('currentaffairs')">Start Test</button>
 </div>
 
 </section>
@@ -109,6 +383,416 @@ background:#c4171d;
 © 2026 Rojgar Times India | Mock Test Portal
 </div>
 </footer>
+
+<!-- QUIZ OVERLAY -->
+
+<div class="quiz-overlay" id="quizOverlay">
+<div class="quiz-box" id="quizBox">
+<!-- Injected dynamically by JS -->
+</div>
+</div>
+
+<script>
+
+/* =========================================
+   QUESTION BANK
+   (Sample practice questions for demo)
+========================================= */
+
+const QUESTION_BANK = {
+
+ssc:{
+title:"SSC Mock Test",
+duration:180,
+questions:[
+{q:"Which of these is the capital of India?", options:["Mumbai","New Delhi","Kolkata","Chennai"], answer:1},
+{q:"If 5x = 45, what is the value of x?", options:["5","9","8","10"], answer:1},
+{q:"Choose the correct synonym of 'Happy'.", options:["Sad","Joyful","Angry","Tired"], answer:1},
+{q:"Who is known as the Father of the Nation in India?", options:["Jawaharlal Nehru","Mahatma Gandhi","Subhas Chandra Bose","Sardar Patel"], answer:1},
+{q:"Find the next number: 2, 4, 6, 8, ?", options:["9","10","11","12"], answer:1}
+]
+},
+
+railway:{
+title:"Railway Mock Test",
+duration:180,
+questions:[
+{q:"Which is the longest railway platform in India?", options:["Kharagpur","Gorakhpur","Kollam","Ayodhya"], answer:1},
+{q:"What does 'IRCTC' stand for?", options:["Indian Railway Catering and Tourism Corporation","Indian Rail Cargo Transport Company","Indian Railway Coach Testing Center","None of these"], answer:0},
+{q:"A train covers 60 km in 1 hour. How far will it travel in 3 hours at same speed?", options:["120 km","150 km","180 km","200 km"], answer:2},
+{q:"Which gas is most abundant in Earth's atmosphere?", options:["Oxygen","Nitrogen","Carbon Dioxide","Hydrogen"], answer:1},
+{q:"Complete the series: 1, 4, 9, 16, ?", options:["20","25","24","22"], answer:1}
+]
+},
+
+banking:{
+title:"Banking Mock Test",
+duration:180,
+questions:[
+{q:"What does 'RBI' stand for?", options:["Reserve Bank of India","Regional Bank of India","Rural Bank of India","Royal Bank of India"], answer:0},
+{q:"Simple Interest on Rs.1000 at 10% per annum for 2 years is:", options:["Rs.100","Rs.150","Rs.200","Rs.250"], answer:2},
+{q:"Which document is required to open a bank account?", options:["PAN Card","Aadhaar Card","Both PAN and Aadhaar","None"], answer:2},
+{q:"NEFT stands for:", options:["National Electronic Funds Transfer","National Estimated Fund Transaction","New Electronic Financial Transfer","None of these"], answer:0},
+{q:"What is the full form of ATM?", options:["Automated Teller Machine","Automatic Transfer Machine","Advanced Teller Machine","Auto Transaction Machine"], answer:0}
+]
+},
+
+bihar:{
+title:"Bihar Exam Mock Test",
+duration:180,
+questions:[
+{q:"What is the capital of Bihar?", options:["Gaya","Patna","Muzaffarpur","Bhagalpur"], answer:1},
+{q:"Which river flows through Patna?", options:["Yamuna","Ganga","Godavari","Narmada"], answer:1},
+{q:"Nalanda University is located in which state?", options:["Bihar","Uttar Pradesh","Jharkhand","West Bengal"], answer:0},
+{q:"Who was the first Chief Minister of Bihar?", options:["Krishna Singh","Karpoori Thakur","Jagannath Mishra","Bindeshwari Dubey"], answer:0},
+{q:"Bihar shares its border with which country?", options:["Bangladesh","Nepal","Bhutan","Myanmar"], answer:1}
+]
+},
+
+gk:{
+title:"General Knowledge Test",
+duration:180,
+questions:[
+{q:"Who wrote the Indian National Anthem?", options:["Bankim Chandra","Rabindranath Tagore","Sarojini Naidu","Subhas Chandra Bose"], answer:1},
+{q:"Which is the largest planet in our solar system?", options:["Earth","Mars","Jupiter","Saturn"], answer:2},
+{q:"The Taj Mahal is located in which city?", options:["Delhi","Agra","Jaipur","Lucknow"], answer:1},
+{q:"Which is the smallest continent by area?", options:["Europe","Australia","Antarctica","South America"], answer:1},
+{q:"How many states are there in India (as commonly taught)?", options:["28","29","27","30"], answer:0}
+]
+},
+
+currentaffairs:{
+title:"Current Affairs Test",
+duration:180,
+questions:[
+{q:"Government exam notifications are usually released on which type of website?", options:["Official government website","Random blog","Social media only","None of these"], answer:0},
+{q:"Which of these is an example of a government scheme category?", options:["Scholarship Scheme","Movie Release","Cricket Match","Fashion Show"], answer:0},
+{q:"Admit cards for exams are usually released:", options:["After the exam","A few days before the exam","One year before","Never"], answer:1},
+{q:"What should a candidate check on an admit card?", options:["Exam center and time","Only name","Only photo","Nothing important"], answer:0},
+{q:"Where should you check for the latest exam updates?", options:["Official exam website","Rumors from friends","Unverified social media posts","Guessing"], answer:0}
+]
+}
+
+};
+
+/* =========================================
+   STATE
+========================================= */
+
+let currentTestKey = null;
+let currentQuestions = [];
+let currentIndex = 0;
+let userAnswers = [];
+let timeLeft = 0;
+let timerInterval = null;
+
+const quizOverlay = document.getElementById("quizOverlay");
+const quizBox = document.getElementById("quizBox");
+
+
+/* =========================================
+   START TEST
+========================================= */
+
+function startTest(testKey){
+
+const test = QUESTION_BANK[testKey];
+
+if(!test){
+alert("Test not found.");
+return;
+}
+
+currentTestKey = testKey;
+currentQuestions = test.questions;
+currentIndex = 0;
+userAnswers = new Array(currentQuestions.length).fill(null);
+timeLeft = test.duration;
+
+quizOverlay.classList.add("show");
+
+renderQuestion();
+
+clearInterval(timerInterval);
+timerInterval = setInterval(function(){
+
+timeLeft--;
+
+if(timeLeft <= 0){
+clearInterval(timerInterval);
+timeLeft = 0;
+submitTest();
+return;
+}
+
+updateTimerDisplay();
+
+}, 1000);
+
+}
+
+
+/* =========================================
+   RENDER QUESTION
+========================================= */
+
+function renderQuestion(){
+
+const test = QUESTION_BANK[currentTestKey];
+const question = currentQuestions[currentIndex];
+const total = currentQuestions.length;
+const isLast = currentIndex === total - 1;
+
+let optionsHTML = "";
+
+question.options.forEach(function(option, index){
+
+const isSelected = userAnswers[currentIndex] === index;
+
+optionsHTML += `
+<label class="quiz-option ${isSelected ? "selected" : ""}" onclick="selectAnswer(${index})">
+<input type="radio" name="quizOption" ${isSelected ? "checked" : ""} readonly>
+<span>${escapeHTML(option)}</span>
+</label>
+`;
+
+});
+
+quizBox.innerHTML = `
+
+<div class="quiz-header">
+<h3>${escapeHTML(test.title)}</h3>
+<div style="display:flex; align-items:center; gap:12px;">
+<span class="quiz-timer" id="quizTimer">⏱ --:--</span>
+<button class="quiz-close" onclick="closeQuiz()">&times;</button>
+</div>
+</div>
+
+<div class="quiz-progress">
+Question ${currentIndex + 1} of ${total}
+</div>
+
+<div class="quiz-question">
+${escapeHTML(question.q)}
+</div>
+
+<div class="quiz-options">
+${optionsHTML}
+</div>
+
+<div class="quiz-nav">
+<button class="quiz-btn prev" onclick="prevQuestion()" ${currentIndex === 0 ? "disabled" : ""}>
+Previous
+</button>
+
+${
+isLast
+? `<button class="quiz-btn submit" onclick="submitTest()">Submit Test</button>`
+: `<button class="quiz-btn next" onclick="nextQuestion()">Next</button>`
+}
+</div>
+
+`;
+
+updateTimerDisplay();
+
+}
+
+
+/* =========================================
+   SELECT ANSWER
+========================================= */
+
+function selectAnswer(index){
+
+userAnswers[currentIndex] = index;
+
+renderQuestion();
+
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+function nextQuestion(){
+
+if(currentIndex < currentQuestions.length - 1){
+
+currentIndex++;
+
+renderQuestion();
+
+}
+
+}
+
+
+function prevQuestion(){
+
+if(currentIndex > 0){
+
+currentIndex--;
+
+renderQuestion();
+
+}
+
+}
+
+
+/* =========================================
+   TIMER DISPLAY
+========================================= */
+
+function updateTimerDisplay(){
+
+const timerEl = document.getElementById("quizTimer");
+
+if(!timerEl) return;
+
+const minutes = Math.floor(timeLeft / 60);
+const seconds = timeLeft % 60;
+
+const formatted =
+String(minutes).padStart(2,"0") + ":" + String(seconds).padStart(2,"0");
+
+timerEl.textContent = "⏱ " + formatted;
+
+if(timeLeft <= 30){
+timerEl.classList.add("low-time");
+}
+else{
+timerEl.classList.remove("low-time");
+}
+
+}
+
+
+/* =========================================
+   SUBMIT TEST
+========================================= */
+
+function submitTest(){
+
+clearInterval(timerInterval);
+
+let correct = 0;
+let wrong = 0;
+let skipped = 0;
+
+currentQuestions.forEach(function(question, index){
+
+if(userAnswers[index] === null){
+skipped++;
+}
+else if(userAnswers[index] === question.answer){
+correct++;
+}
+else{
+wrong++;
+}
+
+});
+
+const total = currentQuestions.length;
+const percentage = Math.round((correct / total) * 100);
+
+quizBox.innerHTML = `
+
+<div class="result-screen">
+
+<h2>Test Completed!</h2>
+<p style="color:#666;">${escapeHTML(QUESTION_BANK[currentTestKey].title)}</p>
+
+<div class="score-circle">
+<span class="score-num">${percentage}%</span>
+<span class="score-total">${correct} / ${total} Correct</span>
+</div>
+
+<div class="result-stats">
+
+<div class="result-stat correct">
+<div class="num">${correct}</div>
+<div class="label">Correct</div>
+</div>
+
+<div class="result-stat wrong">
+<div class="num">${wrong}</div>
+<div class="label">Wrong</div>
+</div>
+
+<div class="result-stat skipped">
+<div class="num">${skipped}</div>
+<div class="label">Skipped</div>
+</div>
+
+</div>
+
+<div class="result-actions">
+<button class="quiz-btn next" onclick="startTest('${currentTestKey}')">Retake Test</button>
+<button class="quiz-btn prev" onclick="closeQuiz()">Close</button>
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================
+   CLOSE QUIZ
+========================================= */
+
+function closeQuiz(){
+
+clearInterval(timerInterval);
+
+quizOverlay.classList.remove("show");
+
+}
+
+
+quizOverlay.addEventListener("click", function(event){
+
+if(event.target === quizOverlay){
+
+closeQuiz();
+
+}
+
+});
+
+
+document.addEventListener("keydown", function(event){
+
+if(event.key === "Escape"){
+
+closeQuiz();
+
+}
+
+});
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHTML(value){
+
+return String(value ?? "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+</script>
 
 </body>
 </html>
