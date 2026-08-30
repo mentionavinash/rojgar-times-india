@@ -555,6 +555,7 @@ flex-direction:column;
 }
 
 .new-section{
+margin:15px;
 padding:20px 15px;
 }
 
@@ -567,8 +568,21 @@ font-size:22px;
 font-size:16px;
 }
 
+.hero-banner{
+margin:15px;
+}
+
 .join-banner{
+margin:15px;
 padding:25px 15px;
+}
+
+.card-box{
+margin:0 15px 15px;
+}
+
+.cards-section{
+padding:15px 0;
 }
 
 .footer-grid{
