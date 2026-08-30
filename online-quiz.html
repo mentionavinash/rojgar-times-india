@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Online Quiz - Rojgar Times India</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+.page-banner{
+background:#002a72;
+color:white;
+text-align:center;
+padding:60px 20px;
+}
+
+.page-banner h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.quiz-container{
+max-width:1000px;
+margin:40px auto;
+padding:20px;
+}
+
+.quiz-box{
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+margin-bottom:20px;
+}
+
+.quiz-box h2{
+color:#002a72;
+margin-bottom:20px;
+}
+
+.option{
+display:block;
+padding:12px;
+margin:10px 0;
+background:#f5f7fb;
+border-radius:6px;
+cursor:pointer;
+}
+
+.submit-btn{
+background:#e31e24;
+color:white;
+border:none;
+padding:15px 30px;
+font-size:16px;
+cursor:pointer;
+border-radius:5px;
+font-weight:bold;
+}
+
+.submit-btn:hover{
+background:#c4171d;
+}
+
+#result{
+margin-top:20px;
+font-size:22px;
+font-weight:bold;
+color:#002a72;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="page-banner">
+<h1>📝 Online Quiz</h1>
+<p>Test Your Knowledge & Improve Your Preparation</p>
+</section>
+
+<div class="quiz-container">
+
+<div class="quiz-box">
+
+<h2>General Knowledge Quiz</h2>
+
+<p><strong>Q1.</strong> What is the capital of India?</p>
+
+<label class="option">
+<input type="radio" name="q1" value="0">
+Mumbai
+</label>
+
+<label class="option">
+<input type="radio" name="q1" value="1">
+New Delhi
+</label>
+
+<label class="option">
+<input type="radio" name="q1" value="0">
+Kolkata
+</label>
+
+<label class="option">
+<input type="radio" name="q1" value="0">
+Chennai
+</label>
+
+<hr><br>
+
+<p><strong>Q2.</strong> Who is known as the Father of the Nation?</p>
+
+<label class="option">
+<input type="radio" name="q2" value="1">
+Mahatma Gandhi
+</label>
+
+<label class="option">
+<input type="radio" name="q2" value="0">
+Jawaharlal Nehru
+</label>
+
+<label class="option">
+<input type="radio" name="q2" value="0">
+Subhash Chandra Bose
+</label>
+
+<label class="option">
+<input type="radio" name="q2" value="0">
+Bhagat Singh
+</label>
+
+<hr><br>
+
+<p><strong>Q3.</strong> Which planet is called the Red Planet?</p>
+
+<label class="option">
+<input type="radio" name="q3" value="0">
+Earth
+</label>
+
+<label class="option">
+<input type="radio" name="q3" value="1">
+Mars
+</label>
+
+<label class="option">
+<input type="radio" name="q3" value="0">
+Venus
+</label>
+
+<label class="option">
+<input type="radio" name="q3" value="0">
+Jupiter
+</label>
+
+<br>
+
+<button class="submit-btn" onclick="checkQuiz()">
+Submit Quiz
+</button>
+
+<div id="result"></div>
+
+</div>
+
+</div>
+
+<script>
+
+function checkQuiz(){
+
+let score = 0;
+
+let q1 = document.querySelector('input[name="q1"]:checked');
+let q2 = document.querySelector('input[name="q2"]:checked');
+let q3 = document.querySelector('input[name="q3"]:checked');
+
+if(q1) score += parseInt(q1.value);
+if(q2) score += parseInt(q2.value);
+if(q3) score += parseInt(q3.value);
+
+document.getElementById("result").innerHTML =
+"✅ Your Score: " + score + " / 3";
+
+}
+
+</script>
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+<h3>🇮🇳 Rojgar Times India</h3>
+<p>Online Quiz & Learning Platform.</p>
+</div>
+
+<div>
+<h3>Quick Links</h3>
+<p><a href="jobs.html">Jobs</a></p>
+<p><a href="results.html">Results</a></p>
+<p><a href="study-material.html">Study Material</a></p>
+</div>
+
+<div>
+<h3>Contact</h3>
+<p>📧 rojgartimesindia@gmail.com</p>
+<p>📞 +91 9199901906</p>
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 Rojgar Times India. All Rights Reserved.
+</div>
+
+</footer>
+
+</body>
+</html>
