@@ -51,6 +51,8 @@
 
 <li><a href="jobs.html"><i class="fas fa-briefcase"></i> Jobs</a></li>
 
+<li><a href="online-form.html"><i class="fas fa-edit"></i> Online Form Apply</a></li>
+
 <li><a href="results.html"><i class="fas fa-chart-bar"></i> Results</a></li>
 
 <li><a href="admit-card.html"><i class="fas fa-id-card"></i> Admit Card</a></li>
@@ -90,8 +92,6 @@
 <li><a href="student-zone.html"><i class="fas fa-users"></i> Student Zone</a></li>
 
 <li><a href="student-register.html"><i class="fas fa-user-plus"></i> Student Register</a></li>
-
-<li><a href="online-form.html"><i class="fas fa-edit"></i> Online Form Apply</a></li>
 
 <li><a href="internship.html"><i class="fas fa-user-tie"></i> Internship</a></li>
 
@@ -467,56 +467,6 @@ Results, Admit Cards, Scholarships and Career Updates.
 </div>
 
 </footer>
-
-<script>
-
-/* =========================================
-   NAVBAR DROPDOWN (mobile click toggle)
-========================================= */
-
-document.querySelectorAll(".navbar .dropdown > a").forEach(function(toggle){
-
-toggle.addEventListener("click", function(event){
-
-if(window.innerWidth <= 900){
-
-event.preventDefault();
-
-const parent = toggle.parentElement;
-
-document.querySelectorAll(".navbar .dropdown").forEach(function(item){
-
-if(item !== parent){
-
-item.classList.remove("open");
-
-}
-
-});
-
-parent.classList.toggle("open");
-
-}
-
-});
-
-});
-
-document.addEventListener("click", function(event){
-
-if(!event.target.closest(".navbar .dropdown")){
-
-document.querySelectorAll(".navbar .dropdown").forEach(function(item){
-
-item.classList.remove("open");
-
-});
-
-}
-
-});
-
-</script>
 
 </body>
 </html>
