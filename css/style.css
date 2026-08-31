@@ -1058,3 +1058,11 @@ font-size:28px;
 cursor:pointer;
 font-weight:bold;
 }
+
+.whatsapp-btn{
+background:#25D366;
+}
+
+.telegram-btn{
+background:#0088cc;
+}
