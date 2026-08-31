@@ -829,8 +829,12 @@ min-width:70px;
 }
 
 .footer-grid{
-padding:30px 15px;
-gap:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
+max-width:1400px;
+margin:auto;
+padding:40px 20px;
 }
 
 }
