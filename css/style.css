@@ -962,6 +962,10 @@ font-size:24px;
 bottom:85px;
 }
 
+.footer-grid{
+grid-template-columns:repeat(5,1fr);
+}
+
 #topBtn{
 width:55px;
 height:55px;
