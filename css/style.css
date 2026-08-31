@@ -1074,3 +1074,46 @@ background:#25D366;
 .telegram-btn{
 background:#0088cc;
 }
+/* =========================
+   MOBILE FOOTER FIX
+========================= */
+
+@media(max-width:768px){
+
+.footer-grid{
+grid-template-columns:repeat(2,1fr) !important;
+gap:20px !important;
+}
+
+.social-footer{
+padding:15px 10px;
+font-size:15px;
+line-height:1.8;
+}
+
+.social-footer a{
+display:inline-block;
+margin:5px;
+}
+
+.copyright{
+font-size:14px;
+padding:15px 10px;
+}
+
+.whatsapp-chat{
+left:15px;
+bottom:15px;
+}
+
+.whatsapp-channel{
+left:15px;
+bottom:80px;
+}
+
+#topBtn{
+right:15px;
+bottom:15px;
+}
+
+}
