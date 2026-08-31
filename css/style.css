@@ -880,26 +880,34 @@ font-size:14px;
 
 }
 
-/* WHATSAPP BUTTON */
+/* =========================
+   WHATSAPP BUTTONS
+========================= */
 
 .whatsapp-float{
 position:fixed;
 width:60px;
 height:60px;
-background:#25D366;
 color:#fff;
 border-radius:50%;
 text-align:center;
 line-height:60px;
-font-size:30px;
+font-size:28px;
 z-index:99999;
 box-shadow:0 4px 10px rgba(0,0,0,.3);
 text-decoration:none;
+display:block;
+transition:.3s;
+}
+
+.whatsapp-float:hover{
+transform:scale(1.1);
 }
 
 .whatsapp-chat{
 left:20px;
 bottom:20px;
+background:#25D366;
 }
 
 .whatsapp-channel{
@@ -908,22 +916,9 @@ bottom:95px;
 background:#128C7E;
 }
 
-#topBtn{
-display:none;
-position:fixed;
-right:20px;
-bottom:20px;
-width:60px;
-height:60px;
-border:none;
-border-radius:50%;
-background:#002a72;
-color:white;
-font-size:22px;
-cursor:pointer;
-z-index:99999;
-}
-/* TOP BUTTON */
+/* =========================
+   BACK TO TOP BUTTON
+========================= */
 
 #topBtn{
 display:none;
@@ -935,8 +930,38 @@ height:60px;
 border:none;
 border-radius:50%;
 background:#002a72;
-color:white;
+color:#fff;
 font-size:22px;
 cursor:pointer;
 z-index:99999;
+box-shadow:0 4px 10px rgba(0,0,0,.3);
+transition:.3s;
+}
+
+#topBtn:hover{
+background:#e31e24;
+transform:scale(1.1);
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.whatsapp-float{
+width:55px;
+height:55px;
+line-height:55px;
+font-size:24px;
+}
+
+.whatsapp-channel{
+bottom:85px;
+}
+
+#topBtn{
+width:55px;
+height:55px;
+font-size:18px;
+}
+
 }
