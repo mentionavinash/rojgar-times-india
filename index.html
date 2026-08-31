@@ -489,7 +489,13 @@ behavior:"smooth"
 function toggleMenu(){
 document.querySelector(".navbar ul").classList.toggle("active");
 }
+setTimeout(function(){
+document.getElementById("telegramPopup").style.display="block";
+},5000);
 
+function closePopup(){
+document.getElementById("telegramPopup").style.display="none";
+}
 </script>
 
 </body>
