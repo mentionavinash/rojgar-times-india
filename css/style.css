@@ -883,6 +883,16 @@ font-size:14px;
 /* WHATSAPP BUTTON */
 
 .whatsapp-float{
+   .whatsapp-chat{
+left:20px;
+bottom:20px;
+}
+
+.whatsapp-channel{
+left:20px;
+bottom:95px;
+background:#128C7E;
+}
 position:fixed;
 width:60px;
 height:60px;
