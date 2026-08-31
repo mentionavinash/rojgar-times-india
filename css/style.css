@@ -965,42 +965,40 @@ font-size:18px;
 }
 
 }
-/* =========================
-   MOBILE HAMBURGER MENU
-========================= */
-
 .menu-toggle{
 display:none;
-color:white;
-font-size:28px;
+color:#fff;
+font-size:30px;
 padding:15px 20px;
 cursor:pointer;
+background:#002a72;
 }
 
-@media(max-width:768px){
+@media screen and (max-width:768px){
 
 .menu-toggle{
-display:block;
+display:block !important;
 }
 
 .navbar ul{
-display:none;
+display:none !important;
 flex-direction:column;
 width:100%;
+background:#002a72;
 }
 
 .navbar ul.active{
-display:flex;
+display:flex !important;
 }
 
 .navbar ul li{
 width:100%;
-text-align:left;
 }
 
 .navbar ul li a{
-padding:15px 20px;
-border-top:1px solid rgba(255,255,255,.1);
+display:block;
+padding:15px;
+border-top:1px solid rgba(255,255,255,.15);
 }
 
 }
